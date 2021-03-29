@@ -1,4 +1,4 @@
-import 'mocha';
+/*import 'mocha';
 import {expect} from 'chai';
 import {add} from '../src/ejercicio-1/e';
 
@@ -14,4 +14,4 @@ describe('add function tests', () => {
   it('add(1.2, 3.5) returns value 4.7', () => {
     expect(add(1.2, 3.5)).to.be.equal(4.7);
   });
-});
+});*/
