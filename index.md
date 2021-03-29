@@ -180,11 +180,49 @@ Finalizando así la documentación con Typedoc.
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
 
 
-## INSTALACIÓN. CONFIGURACIÓN MOCHA Y CAHI
+## INSTALACIÓN. CONFIGURACIÓN MOCHA Y CHAI
+
+En este apartado como ya hemos anteriormentem, tendremos que volver a ejecutar dichos pasos para poder trabajar con Pruebas Unitarias con las herramientas **Mocha** y **Chai**. Primero instalaremos las dependencias y paquetes de Mocha y chai. Para ello ejecutaremos:
+
+![Instalación Mocha y Chai](https://i.imgur.com/YJgCv9g.jpg)
+
+A continuación con el comando `touch .mocharc.json` crearemos el fichero de configuración de la herramienta Mocha, este irá en la raíz de el proyecto y nos indicará utilidades para hacer TDD, es decir las pruebas unitarias. Para ello le indicaremos que las pruebas unitaras se alojarán en el directorio **./tests** y tendrán una terminología de **.spec.ts**. Esto quedaría:
+
+![configuración .mocharc.json](https://i.imgur.com/zwBQ19e.jpg)
+
+Ya tendremos una configuración básica de la herramienta, pero necesito crear el directorio **./tests** y los ficheros que tendrán las pruebas unitarias de los 3 ejercicios que se nos plantean, tendrá una estructura > `ejercicio-n.spec.ts`, siendo n = [1-3], con la enumeración de cada ejercicio:
+
+![Crear spec](https://i.imgur.com/GSKmTke.jpg)
+
+Como ha pasado con la herramienta **Typedoc** indicaremos en el **package.json** con qué comando, ejecutaremos la herramienta de mocha. Esta herramienta se ejecuta tal que `npm run [nombre_de_invocación]`, el nombre de invocación en nuestro caso será **test**, quedando el comando completo para ejecutar las pruebas unitarias de la forma: 
+
+> `npm run test`
+
+Este nombre de invocación es el que configuraremos en el package.json, quedando:
+
+![mocha en package.json](https://i.imgur.com/u12sCYM.jpg)
+
+Finalizando con todo esto la configuración de las herramientas necesarias para ejecutar los ejercicios mediante TDD. Quedando la estructura final con los ficheros además del .nojekyll, los cuales no se nombraron pero porque se dan por hechos, como:
+
+![Estructura final proyecto con](https://i.imgur.com/z2rKKPl.jpg)
+
+Pero no acabaríamos con esto ya que añadimos unas nuevas variantes y son informe de seguimiento con la herramienta **Instanbul** y **Coveralls**.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+
+
+## INSTALACIÓN, CONFIGURACIÓN COVERAGE, INSTANBUL, COVERALLS
+
 
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 
 
 ### EJERCICIO 1
