@@ -82,7 +82,7 @@ Con ello ya podríamos trabajar en esta práctica.
 
 Lo primero sería estructurar el workspace de nuestra práctica, primero clonaremos el repositorio y lo iremos estructurando:
 
-> - [Clonado](https://i.imgur.com/D7Bu2t1.jpg)
+![Clonado](https://i.imgur.com/D7Bu2t1.jpg)
 
 Comenzamos modificando el **package.json** con el comando `npm init --yes` y creamos de forma automática el fichero de configuración **tsconfig.json** eso lo haremos con el comando `tsc --init` y se crearía el tsconfig.json por defecto, nosotros lo modificaremos algo más para poder trabajar correctamente, necesitaremos poner la opción **exclude []** dentro del tsconfig.json para indicarle al compilador los directorios que exluiría a la hora de compilar explícitamente quedando:
 
