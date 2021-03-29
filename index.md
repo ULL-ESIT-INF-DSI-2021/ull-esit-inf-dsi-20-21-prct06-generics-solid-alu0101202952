@@ -218,7 +218,59 @@ Pero no acabaríamos con esto ya que añadimos unas nuevas variantes y son infor
 
 ## INSTALACIÓN, CONFIGURACIÓN COVERAGE, INSTANBUL, COVERALLS
 
+Comenzaremos instalando los paquetes y dependencias de las herramientas asociadas a Instanbul, como es **nyc** y la de **coveralls**, tal que:
 
+![Instalación nyc y coveralls](https://i.imgur.com/m1kcZvf.jpg)
+
+Luego pasaremos al **package.json** para configurar la herramienta primero de **nyc**:
+
+![Configuracion nyc package.json](https://i.imgur.com/mWvYUnk.jpg)
+
+Como se especificó en el package.json se ejecuta el informe de seguimiento con nyc con el comando `npm run coverage`:
+
+![Comando ejecucion](https://i.imgur.com/DMnYAvO.jpg)
+
+Mostrando por terminal en un comienzo un informe de seguimiento, en mi caso vacío, tal que:
+
+![Informe seguimiento vacío](https://i.imgur.com/9xoR2Jl.jpg)
+
+Tras esto pasaremos a configurar la herramienta de Coveralls, primero tendremos que acceder a la página de Coveralls e iniciar sesión:
+
+![Iniciar sesion coveralls](https://i.imgur.com/LVbymJY.jpg).
+
+Como queremos preparar un informe de seguimiento con esta herramienta necesitamos especificar el repositorio de Github al que se le hará. Primero se ha de cambiar la visibilidad del repositorio para hacerlo _público_ y así Coveralls lo reconozca. Y así luego habilitar el repositorio, añadiéndolo con **ON**:
+
+![Añadir repo](https://i.imgur.com/hGXEjff.jpg)
+
+Luego copiaremos un link que se genera con coveralls asociado a dicho repo y necesitaremos copiar para añadir a la estructura de nuestro repositorio:
+
+![lin coveralls](https://i.imgur.com/aaQWNQO.jpg)
+
+Tras ello pasaríamos a la raíz de nuestro repositorio y crearemos el fichero > `.coveralls.yml`:
+
+![crear fichero .coveralls.yml](https://i.imgur.com/a41IKsN.jpg)
+
+A continuación abrimos dicho fichero y pegaríamos el link que nos genera la herramienta coveralls y anteriormente habíamos copiado:
+
+![configuración fichero .coveralls.yml](https://i.imgur.com/QXKZlCV.jpg)
+
+Luego pasaríamos al package.json donde modificaríamos la línea de comando donde habíamos configurado con nyc para seguir el reporte del informe de seguimiento con coveralls y posterior el borrado del directorio que genera nyc:
+
+![configuracion package coveralls](https://i.imgur.com/Yj6xYwt.jpg)
+
+Y para guardar cambios y ver como ha cambiado volvemos a ejecutar el seguimiento, seguirá vacío hasta que añada algo de código con el que trabajar, lo cual mostraré más adelante.
+
+![volver ejecutar informe](https://i.imgur.com/GFeLL0Z.jpg)
+
+Si añadiéramos código, volviéramos a ejecutar el coverage, luego fuéramos a la página de coveralls tendríamos que ir al apartad **Badge** del repo que se genera para copiar el markdown generado y pegarlo en el README.md:
+
+![badge](https://i.imgur.com/zW7ba2c.jpg)
+
+Finalmente al generar la documentación con `npm run doc` y Abrirlo con **Live Server** se mostraría el badge que antes henos guardado en el README.md.
+
+Por último la estructura final y definitiva que tendría mi repositorio sería:
+
+![Estructura final](https://i.imgur.com/b1Vn4cW.jpg)
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -227,23 +279,7 @@ Pero no acabaríamos con esto ya que añadimos unas nuevas variantes y son infor
 
 ### EJERCICIO 1
 
-/**
- * ### EJERCICIO 1:
- * #### ¿En qué consiste?
- * Pasas al programa un año y si cumple las condiciones establecidas te dirá si el año es bisiesto o no
- * @param year Consiste en el año que pasaremos a la función para ver si es bisiesto
- * @return `true` Si el año es bisiesto 
- * @return `false` Si el año **NO** es bisiesto
- * 
- */
- 
- 
- /**
- * ```typescript
- * leapYear = isLeapYear(1997)
- * @return `false`
- * ```
- */
+
 
 
 
@@ -252,28 +288,6 @@ Pero no acabaríamos con esto ya que añadimos unas nuevas variantes y son infor
 
 ### EJERCICIO 2
 
-/**
- * ### EJERCICIO 2:
- * #### ¿En qué consiste?
- * Dos funciones, una te convierte el decimal en notación factorial y la otra el factorial en notación decimal
- * ##### FUNCIÓN `decimalToFactorial`
- * @param ndecimal Consiste en el decimal que pasaremos a la función para convertirlo en su notación factorial
- * @return `factorial` correspondiente
- * ##### FUNCIÓN `maxfactorial`
- * @param ndecimal Consiste en el decimal que pasaremos a la función para encontrar el máximo factorial por el que se puede dividir
- * @return `factorialrecursive` el factorial correspondiente de llamar a la función recursiva que calcula los factoriales
- * ##### FUNCIÓN `factorialrecursive`
- * @param nfactorial Consiste en el factorial que pasaremos a la función para encontrar su resultado
- * @return `nfactorial * factorialrecursive (nfactorial-1)` el factorial correspondiente 
- */
-
-
-/**
- * ```typescript
- * resultado = decimalToFactorial(463)
- * @return 341010
- * ```
- */
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -281,227 +295,12 @@ Pero no acabaríamos con esto ya que añadimos unas nuevas variantes y son infor
 
 ### EJERCICIO 3
 
-/**
- * ### EJERCICIO 3:
- * #### ¿En qué consiste?
- * Queremos comprobar la validez de un determinado mensaje en función de unas reglas preestablecidas.
- * @param cadena Consiste en la cadena alfanumérica que pasaremos del estilo `2hi`
- * @return `true` Si es válida la cadena según dichas reglas
- * @return `false` Si **NO** es válida la cadena según dichas reglas
- * 
- */
- 
- 
- /**
- * ```typescript
- * 
- * result1 = isValid("2hi")
- * @return `true`
- * 
- * result2 = isValid("5hello")
- * @return `true`
- * 
- * result3 = isValid("2hi3")
- * @return `false`
- * 
- * result4 = isValid("2hiii")
- * @return `false`
- * ```
- */
 
 
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-
-### EJERCICIO 4
-
-/**
- * ### EJERCICIO 4:
- * #### ¿En qué consiste?
- * Pasas al programa dos patrones de nombrar variables tipo : SnakeCase y CamelCase (`hola_mundo` y `holaMundo`), respectivamente y puede pasar de un tipo de patrón al otro con dos funciones **fromSnakeToCamelCase** y **fromCamelToSnakeCase**
- * #### FUNCIÓN `fromSnakeToCamelCase`
- * @param cadenasnake Consiste en la cadena que cumple con las reglas de patrón de **SnakeCase**
- * @return cadenacamel la cadena correspondiente pero con el patrón **CamelCase**
- * #### FUNCIÓN `fromCamelToSnakeCase`
- * @param cadenacamel Consiste en la cadena que cumple con las reglas de patrón de **CamelCase**
- * @return cadenasnake la cadena correspondiente pero con el patrón **SnakeCase**
- * 
- */
- 
- /**
- * ```typescript
- * 
- * cadena_snake = "sample_string";
- * @return `sampleString`
- * 
- * cadenaCamel = "sampleString";
- * @return `sample_string`
- * ```
- */
-
-
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 5
-
-/**
- * ### EJERCICIO 5:
- * #### ¿En qué consiste?
- * Pasas al programa una cadena a la cual se le eliminan las 'a' y 'e', para ello hacemos uso de expresiones regulares
- * @param cadena Consiste en la cadena a la cual se eliminarán las a'es y la e's.
- * @return `resultado` la cadena que ya tiene dichas vocales eliminadas.
- * 
- */
-
-/**
- * @param reemplazo1 Es una expresión regular a la cual se le han eliminado las a's, con el flag `g` conseguimos que se repita en toda la cadena que se lee
- */
-var reemplazo1 = /a/g;
-/**
- * @param reemplazo2 Es una expresión regular a la cual se le han eliminado las e's, con el flag `g` conseguimos que se repita en toda la cadena que se lee
- */
- 
- /**
- * ```typescript
- * cadena = "Beard Jeans Hairbrush Knuckleduster Sand"
- * @return `=> Brd Hirbrush Jns Knuckldustr Snd`
- * ```
- */
- 
- 
- 
-━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 6
-
-/**
- * ### EJERCICIO 6:
- * #### ¿En qué consiste?
- * Programa basado en el [Proceso de verificación ISBN-10](https://en.wikipedia.org/wiki/International_Standard_Book_Number) se usa para validar la identificación de números. Normalmente contienen guiones y siguen un patrón como: 3-598-21508-8.
- * @param cadena Consiste en la cadena correspondiente al código ISBN que se le pasa para validar la identificación de los números
- * @return `true` Si el ISBN cumple las reglas, es decir, es válido 
- * @return `false` Si el ISBN **NO** cumple las reglas, es decir, es válido
- * 
- */
- 
- /**
- * ```typescript
- * ISBN = "3-598-21508-7";
- * @return `false`
- * ```
- */
- 
- 
- 
- ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 7
-
-/**
- * ### EJERCICIO 7:
- * #### ¿En qué consiste?
- * El programa recibe como parámetro un entero positivo y devuelve el siguiente número mayor que pueda ser formado al reposicionar sus dígitos.
- * @param cifra Consiste en el número con mínimo dos dígitos para poder reposicionar dichos dígitos entre sí
- * @return `resultado` El número siguiente mayor que puede ser formado al reposicionar los dígitos de `cifra`.
- * 
- */
- 
- /**
- * ```typescript
- * cifrain = 12;
- * @return `21`
- * ```
- */
-
-
-
- ━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 8
-
-/**
- * ### EJERCICIO 8:
- * #### ¿En qué consiste?
- * A partir de cadenas de texto que representan direcciones IPv4, la función recibe como parámetros dos cadenas y devuelve un valor numérico que representa el número de IPs disponibles en el rango correspondiente.
- * @param ips1 Consiste en la cadena con la IP de del rango mínimo
- * @param ips2 Consiste en la cadena con la IP de del rango mayor 
- * @return `resultado` El rango que sale de la diferencia entre la `ips2`(ip con rango mayor) y `ips1`(ip con rango menor)
- * 
- */
- 
- /**
- * ```typescript
- * ips_1 = "10.0.0.0";
- * ips_2 = "10.0.0.50";
- * @return `Rango == 50`
- * ```
- */
- 
- 
- 
-━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 9
-
-/**
- * ### EJERCICIO 9:
- * #### ¿En qué consiste?
- * Pasas al programa el tipo de tu pokemon, el tipo del pokemon rival, la capacidad de ataque de tu pokemon y la capacidad de ataque del pokemon rival y te saca cuanto daño haces tu y cuanto daño te hace el rival con la fórmula del daño de la función adicional `calcularDaño`
- * #### FUNCIÓN **efectividadPokemon**
- * @param tipo1 Consiste en el tipo de tu pokemon (fuego|agua|hierba|eléctrico)
- * @param tipo2 Consiste en el tipo del pokemon rival (fuego|agua|hierba|eléctrico)
- * @param ataque1 Consiste en la capacidad de ataque de tu pokemon
- * @param ataque2 Consiste en la capacidad de ataque del pokemon rival
- * @return `efectividad1` y `efectividad2` Consiste en las efectividades del tipo del pokemon tuyo y el pokemon rival, respectivamente
- * #### FUNCIÓN **calcularDaño**
- * @param ataque Recibe el ataque del tipo
- * @param efectividad Recibe la efectividad
- * @return `daño` con la fórmula, teniendo la defensa predefinida a _204_, como estándar, el ataque y la efectividad se calcula el daño que hace el pokemon.
- * 
- */
- 
- /**
- * ```typescript
- * pokemon1 = "eléctrico";
- * pokemon2 = "agua";
- * capacidad_ataque1 = 100;
- * capacidad_ataque2 = 160;
- * @return `Daño que causa tu equipo Pokemon: ${dañoPoke1}`
- * @return `Daño que realiza el equipo rival: ${dañoPoke2}`
- * ```
- */
- 
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━✧❂✧━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-
-### EJERCICIO 10
-
-/**
- * ### EJERCICIO 10:
- * #### ¿En qué consiste?
- * Programa que comprueba la validez de un nombre de usuario según unos criterios
- * @param usuario Consiste en el nombre de usuario que le pasamos para validar
- * @return `true` Si es válido 
- * @return `false` Si  **NO** es válido
- * 
- */
- 
- 
- /**
- * ```typescript
- * user_in = "hola";
- * @return `false`
- * ```
- */
 
  
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
