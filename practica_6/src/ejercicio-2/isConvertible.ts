@@ -1,13 +1,6 @@
-/**
- *  ### Interfaz genérica que hace la conversión de tiempo
- */
-
-export interface isConvertible<T, U>{
-
-}
 
 //La unidad fundamental para medir el tiempo es en segundos
- export enum TUnits{
+export enum TUnits{
   minutes = 60,
   hours = 3600,
   day = 86400,
@@ -15,6 +8,23 @@ export interface isConvertible<T, U>{
   month = 2592000,
   year = 31536000
 }
+
+/**
+ *  ### Interfaz genérica que hace la conversión de tiempo
+ */
+
+export interface isConvertible<T, U>{
+// hacer una funcion que en función de la medida que se le pase saque una conversión u otra
+/**
+ * name
+ */
+  public convertirStoMinutes(numMinutes: TUnits) {
+    let result = numMinutes*minutes;
+	  return console.log(`${numMinutes} minutos son ${result} segundos`)
+  } 
+}
+
+
 
 export abstract class Magnitude<TUnits> implements isConvertible<TUnits, TUnits> {
   constructor(private value: number) { 
@@ -28,6 +38,7 @@ export abstract class Magnitude<TUnits> implements isConvertible<TUnits, TUnits>
     this.value = value;
   }
 
+  
 }
 
 export class MagnitudeTime<TUnits> extends Magnitude<TUnits>{
