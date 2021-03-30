@@ -56,7 +56,7 @@
 Los objetivos en esta práctica tendremos que resolver una serie de ejercicios de programación que nos permitirán conocer más en profundidad las clases e interfaces genéricas del lenguaje TypeScript. Además, también deberán utilizar los principios SOLID de diseño orientado a objetos. Además nos iniciaremos con los conceptos de Instanbul y Coveralls.
 
 - **ENLACE A LA DOCUMENTACIÓN EN TYPEDOC**
-> - [Informe documentación con Typedoc]()
+> - [Informe documentación con Typedoc](http://127.0.0.1:5500/docs/index.html)
 
 
 
@@ -135,7 +135,7 @@ Tras la estructura básica nos dedicaremos a trabajar en el directorio `./src` d
 
 Para conocer más sobre esta herramienta consultar [Typedoc](https://typedoc.org/). Como ya desde la práctica 3 nos habíamos introducido a la herramienta **Typedoc**, solo queda seguir los mismos pasos mecánicos para esta práctica. Dicho informe creado en Typedoc hecho con los comentarios de los ejercicios de esta práctica se aloja en:
 
-[Informe Typedoc Práctica 5]() 
+[Informe Typedoc Práctica 6](http://127.0.0.1:5500/docs/index.html) 
 
 O también mirando en los apartados **Objetivos** y **Bibliografía/ webgrafía** de este informe.
 
