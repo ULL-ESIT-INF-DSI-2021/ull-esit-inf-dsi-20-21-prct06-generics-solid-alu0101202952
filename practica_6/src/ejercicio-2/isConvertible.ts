@@ -1,6 +1,7 @@
 
 //La unidad fundamental para medir el tiempo es en segundos
 export enum TUnits {
+  seconds = 1,
   minutes = 60,
   hours = 3600,
   day = 86400,
@@ -23,6 +24,8 @@ export interface isConvertible<T>{
     let result = numMinutes*minutes;
 	  return console.log(`${numMinutes} minutos son ${result} segundos`)
   } */
+  addMagnitude(newItem: T): void;
+  getNumberOfMagnitude(): number;
 }
 
 
@@ -42,10 +45,8 @@ export abstract class Magnitude<T> implements isConvertible<T> {
 
 }
 
-
-
-export class MagnitudeTime<TUnits> extends Magnitude<TUnits>{
-  constructor(protected valueTime: TUnits[], private amount: TUnits, private unit: string) { 
+export class MagnitudeTime extends Magnitude<TUnits>{
+  constructor(protected valueTime: TUnits[], private amount: number, private unit: string) { 
     super(valueTime)
   }
 
@@ -77,15 +78,42 @@ export class MagnitudeTime<TUnits> extends Magnitude<TUnits>{
     }
   }
 
-  print() {
-    console.log(`${this.getAmount()} time, is ${this.getMagnitude()} seconds`);
+  getFig(index: number) {
+    return this.valueTime[index];
   }
-  
-  
+
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.getMagnitude()} seconds`);
+  }
 }
 
-const myConvertion = new MagnitudeTime<TUnit>([],2, 'minutos');
+class MagnitudeCollection<T> implements isConvertible<T>{
+  constructor(private items: MagnitudeTime[]) {
+  }
+  addMagnitude(newItem: T): T {
+    return newItem;
+  }
+  getNumberOfMagnitude(): number {
+    throw new Error("Method not implemented.");
+  }
 
-for(var i = 0; i < myConvertion.getAmount(); i++){
-  myConvertion.getAmount().print();
+  addItem(newItem: MagnitudeTime) {
+    this.items.push(newItem);
+  }
+
+  getItem(index: number) {
+    return this.items[index];
+  }
+
+  getNumberOfItems() {
+    return this.items.length;
+  }
+}
+
+const myConvertion = new MagnitudeCollection([
+  new MagnitudeTime([], 2,'minutos')
+]);
+
+for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
+  myConvertion.getItem(i).print();
 }

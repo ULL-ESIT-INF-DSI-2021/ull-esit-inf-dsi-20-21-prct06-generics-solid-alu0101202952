@@ -1,7 +1,7 @@
 {
     "entryPoints": [
       "./src/ejercicio-1/e.ts",
-      "./src/ejercicio-2/e2.ts",
+      "./src/ejercicio-2/isConvertible.ts",
       "./src/ejercicio-3/e3.ts"
     ],
     "out": "./docs"
