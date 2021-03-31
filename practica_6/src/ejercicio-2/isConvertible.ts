@@ -52,6 +52,7 @@ export interface isConvertible<T>{
  */
   convertirToMS(amount: number, type: string): void;
   convertirToKilograms(amount: number, type: string): void; 
+  convertirToMeters(amount: number, type: string): void;
   convertirStoMinutes(amount: number, type: string): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
@@ -101,6 +102,36 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } else if(type == 'ton' || type == 'tons'){
       let result = amount * MUnits.t;
       return console.log(`${amount} Tonelada/s son ${result} kilogramos`)
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  }
+
+  public convertirToMeters(amount: number, type: string){
+    if( type == 'kilometers' || type == 'kilometer'){
+      let result = amount * LUnits.km;
+      return console.log(`${amount} Kilometros son ${result} metros`);
+    } else if(type == 'centimeter' || type == 'centimeters'){
+      let result = amount * LUnits.cm;
+      return console.log(`${amount} centimetro/s son ${result} metros`);
+    } else if(type == 'milimeter' || type == 'milimeters'){
+      let result = amount * LUnits.mm;
+      return console.log(`${amount} milimetro/s son ${result} metros`);
+    } else if(type == 'mile' || type == 'miles'){
+      let result = amount * LUnits.mile;
+      return console.log(`${amount} milla/s son ${result} metros`)
+    } else if(type == 'yard' || type == 'yards'){
+      let result = amount * LUnits.yard;
+      return console.log(`${amount} yarda/s son ${result} metros`)
+    } else if(type == 'foot' || type == 'foots'){
+      let result = amount * LUnits.foot;
+      return console.log(`${amount} pie/s son ${result} metros`)
+    }else if(type == 'inch' || type == 'inches'){
+      let result = amount * LUnits.inch;
+      return console.log(`${amount} pulgada/s son ${result} metros`)
+    }else if(type == 'nautical miles' || type == 'nautical mile'){
+      let result = amount * LUnits.mile_nautic;
+      return console.log(`${amount} milla/s nautica/s son ${result} metros`)
     } else {
       return console.log(`Correct convertion`);
     } 
@@ -264,6 +295,9 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToMeters(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirToKilograms(_amount: number, _type: string): void {
     throw new Error("Method not implemented.");
