@@ -38,4 +38,12 @@ describe('Magnitude Collection', () => {
     it('MagnitudeSpeed.getAmount() returns magnitude of speed', () => {
       return expect(mySpeedConvertion.getUnit()).to.be.equal('miles');
     })
+
+    it('MagnitudeSpeed.print() returns magnitude of speed', () => {
+      return expect(mySpeedConvertion.print()).to.be.equal(undefined);
+  })
+
+    it('MagnitudeSpeed.convertirToMS(2) returns speed in m/s', () => {
+     return expect(mySpeedConvertion.convertirStoMinutes(4,'miles')).to.be.equal(undefined);
+    })
 });

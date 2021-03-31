@@ -64,9 +64,11 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } else if(type == 'month' || type == 'months'){
       let result = amount * TUnits.month;
       return console.log(`${amount} mes/es son ${result} segundos`)
-    } else {
+    } else if(type == 'year' || type == 'years'){
       let result = amount * TUnits.year;
       return console.log(`${amount} año/s son ${result} segundos`)
+    } else {
+      return console.log(`Correct convertion`);
     }
     
   } 
