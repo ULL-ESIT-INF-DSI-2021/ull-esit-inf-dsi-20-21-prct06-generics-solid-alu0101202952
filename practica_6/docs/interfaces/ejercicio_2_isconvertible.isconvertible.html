@@ -75,6 +75,12 @@
 							<h3>Interfaz genérica que hace la conversión de tiempo</h3>
 						</a>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>interface</dt>
+						<dd><p>isConvertible De forma genérica permite convertir dos unidades de medidas de tipo T
+							siendo T los posbibles enum antes nombrados</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -96,7 +102,8 @@
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/ejercicio_2_isconvertible.magnitude.html" class="tsd-signature-type" data-tsd-kind="Class">Magnitude</a></li>
+					<li><a href="../classes/ejercicio_2_isconvertible.magnitudecollection.html" class="tsd-signature-type" data-tsd-kind="Class">MagnitudeCollection</a></li>
+					<li><a href="../classes/ejercicio_2_isconvertible.magnitudeconvert.html" class="tsd-signature-type" data-tsd-kind="Class">MagnitudeConvert</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -107,6 +114,13 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#addmagnitude" class="tsd-kind-icon">add<wbr>Magnitude</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirstominutes" class="tsd-kind-icon">convertir<wbr>Sto<wbr>Minutes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtokelvin" class="tsd-kind-icon">convertir<wbr>ToKelvin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtokilograms" class="tsd-kind-icon">convertir<wbr>ToKilograms</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtom3" class="tsd-kind-icon">convertir<wbr>ToM3</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtoms" class="tsd-kind-icon">convertir<wbr>ToMS</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtometers" class="tsd-kind-icon">convertir<wbr>ToMeters</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#convertirtonewton" class="tsd-kind-icon">convertir<wbr>ToNewton</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ejercicio_2_isconvertible.isconvertible.html#getnumberofmagnitude" class="tsd-kind-icon">get<wbr>Number<wbr>OfMagnitude</a></li>
 							</ul>
 						</section>
@@ -125,18 +139,195 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e06fcd3/practica_6/src/ejercicio-2/isConvertible.ts#L27">ejercicio-2/isConvertible.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L116">ejercicio-2/isConvertible.ts:116</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>name</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>newItem: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirstominutes" class="tsd-anchor"></a>
+					<h3>convertir<wbr>Sto<wbr>Minutes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>Sto<wbr>Minutes<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L111">ejercicio-2/isConvertible.ts:111</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtokelvin" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToKelvin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToKelvin<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L112">ejercicio-2/isConvertible.ts:112</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtokilograms" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToKilograms</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToKilograms<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L109">ejercicio-2/isConvertible.ts:109</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtom3" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToM3</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToM3<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L114">ejercicio-2/isConvertible.ts:114</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtoms" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToMS</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToMS<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L108">ejercicio-2/isConvertible.ts:108</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtometers" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToMeters</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToMeters<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L110">ejercicio-2/isConvertible.ts:110</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="convertirtonewton" class="tsd-anchor"></a>
+					<h3>convertir<wbr>ToNewton</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">convertir<wbr>ToNewton<span class="tsd-signature-symbol">(</span>amount<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L113">ejercicio-2/isConvertible.ts:113</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>amount: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -153,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e06fcd3/practica_6/src/ejercicio-2/isConvertible.ts#L28">ejercicio-2/isConvertible.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct06-generics-solid-alu0101202952/blob/e35d1e0/practica_6/src/ejercicio-2/isConvertible.ts#L117">ejercicio-2/isConvertible.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -182,13 +373,52 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.funits.html" class="tsd-kind-icon">FUnits</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.lunits.html" class="tsd-kind-icon">LUnits</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.munits.html" class="tsd-kind-icon">MUnits</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.sunits.html" class="tsd-kind-icon">SUnits</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/ejercicio_2_isconvertible.tunits.html" class="tsd-kind-icon">TUnits</a>
 					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.temunits.html" class="tsd-kind-icon">Tem<wbr>Units</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ejercicio_2_isconvertible.vunits.html" class="tsd-kind-icon">VUnits</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ejercicio_2_isconvertible.magnitude.html" class="tsd-kind-icon">Magnitude</a>
+						<a href="../classes/ejercicio_2_isconvertible.magnitudecollection.html" class="tsd-kind-icon">Magnitude<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudeconvert.html" class="tsd-kind-icon">Magnitude<wbr>Convert</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudeforce.html" class="tsd-kind-icon">Magnitude<wbr>Force</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudelength.html" class="tsd-kind-icon">Magnitude<wbr>Length</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudemass.html" class="tsd-kind-icon">Magnitude<wbr>Mass</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudespeed.html" class="tsd-kind-icon">Magnitude<wbr>Speed</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudetemperature.html" class="tsd-kind-icon">Magnitude<wbr>Temperature</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/ejercicio_2_isconvertible.magnitudetime.html" class="tsd-kind-icon">Magnitude<wbr>Time</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/ejercicio_2_isconvertible.magnitudevolume.html" class="tsd-kind-icon">Magnitude<wbr>Volume</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -197,6 +427,27 @@
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="ejercicio_2_isconvertible.isconvertible.html#addmagnitude" class="tsd-kind-icon">add<wbr>Magnitude</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirstominutes" class="tsd-kind-icon">convertir<wbr>Sto<wbr>Minutes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtokelvin" class="tsd-kind-icon">convertir<wbr>ToKelvin</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtokilograms" class="tsd-kind-icon">convertir<wbr>ToKilograms</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtom3" class="tsd-kind-icon">convertir<wbr>ToM3</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtoms" class="tsd-kind-icon">convertir<wbr>ToMS</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtometers" class="tsd-kind-icon">convertir<wbr>ToMeters</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ejercicio_2_isconvertible.isconvertible.html#convertirtonewton" class="tsd-kind-icon">convertir<wbr>ToNewton</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="ejercicio_2_isconvertible.isconvertible.html#getnumberofmagnitude" class="tsd-kind-icon">get<wbr>Number<wbr>OfMagnitude</a>
@@ -221,9 +472,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

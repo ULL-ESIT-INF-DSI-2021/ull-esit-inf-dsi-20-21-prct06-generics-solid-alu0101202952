@@ -117,7 +117,10 @@ export interface isConvertible<T>{
   getNumberOfMagnitude(): number;
 }
 
-
+/**
+ * @class MagnitudeConvert<T> clase abstracta genérica que hace la conversión de tipos usando los métodos
+ * de la interfaz genérica que antes se definió y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export abstract class MagnitudeConvert<T> implements isConvertible<T> {
   constructor(private value: T[]) {
   }
@@ -130,6 +133,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     return this.value.length;
   }
   
+  /**
+   * ### Method public convertirStoMinutes
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional de la velocidad
+   */
   public convertirStoMinutes(amount: number, type: string): void {
     if( type == 'pie' || type == 'pies' || type == 'foot'){
       let result = amount * SUnits.pie_s;
@@ -148,6 +157,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   } 
 
+  /**
+   * ### Method public convertirToKilograms
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional de la masa
+   */
   public convertirToKilograms(amount: number, type: string){
     if( type == 'gram' || type == 'grams'){
       let result = amount * MUnits.g;
@@ -166,6 +181,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  /**
+   * ### Method public convertirToMeters
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional de la longitud
+   */
   public convertirToMeters(amount: number, type: string){
     if( type == 'kilometers' || type == 'kilometer'){
       let result = amount * LUnits.km;
@@ -196,6 +217,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  /**
+   * ### Method public convertirToMS
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional del tiempo
+   */
   public convertirToMS(amount: number, type: string){
     if( type == 'minute' || type == 'minutes'){
       let result = amount * TUnits.minutes;
@@ -220,6 +247,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  /**
+   * ### Method public convertirToKelvin
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional de la temperatura
+   */
   public convertirToKelvin(amount: number, type: string){
     if(type == 'celsius'){
       if(amount == 1){
@@ -246,6 +279,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  /**
+   * ### Method public convertirToNewton
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional de la fuerza
+   */
   public convertirToNewton(amount: number, type: string){
     if(type == 'kilonewton'){
       let result = amount * FUnits.kn;
@@ -261,6 +300,12 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  /**
+   * ### Method public convertirToM3
+   * @param amount Cantidad de la unidad
+   * @param type tipo de unidad que pasaremos a la unidad del sistema internacional
+   * @returns unidad del sistema internacional del volumen
+   */
   public convertirToM3(amount: number, type: string){
     if(type == 'liter'){
       let result = amount * VUnits.l;
@@ -276,11 +321,18 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
-
+  /**
+   * ### Method abstract print que necesitaremos que las clases hijas que hereden de esta clase
+   * abstracta usen para sacar por pantalla la muestra correcta de la conversión
+   */
   abstract print(): void;
 
 }
 
+/**
+ * @class MagnitudeSpeed hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando SUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeSpeed extends MagnitudeConvert<SUnits>{
   constructor(protected valueSpeed: SUnits[], private amount: number, private unit: string) { 
     super(valueSpeed)
@@ -308,11 +360,19 @@ export class MagnitudeSpeed extends MagnitudeConvert<SUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} m/s`);
   }
 }
 
+
+/**
+ * @class MagnitudeMass hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando MUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeMass extends MagnitudeConvert<MUnits>{
   constructor(protected valueMass: MUnits[], private amount: number, private unit: string) { 
     super(valueMass)
@@ -340,11 +400,19 @@ export class MagnitudeMass extends MagnitudeConvert<MUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToKilograms(this.getAmount(), this.getUnit())} kilograms`);
   }
 }
 
+
+/**
+ * @class MagnitudeLength hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando LUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeLength extends MagnitudeConvert<LUnits>{
   constructor(protected valueLength: LUnits[], private amount: number, private unit: string) { 
     super(valueLength)
@@ -372,11 +440,19 @@ export class MagnitudeLength extends MagnitudeConvert<LUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMeters(this.getAmount(), this.getUnit())} meters`);
   }
 }
 
+
+/**
+ * @class MagnitudeTime hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando TUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeTime extends MagnitudeConvert<TUnits>{
   constructor(protected valueTime: TUnits[], private amount: number, private unit: string) { 
     super(valueTime)
@@ -404,11 +480,19 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} seconds`);
   }
 }
 
+
+/**
+ * @class MagnitudeTemperature hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando TemUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeTemperature extends MagnitudeConvert<TemUnits>{
   constructor(protected valueTemp: TemUnits[], private amount: number, private unit: string) { 
     super(valueTemp)
@@ -436,11 +520,19 @@ export class MagnitudeTemperature extends MagnitudeConvert<TemUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToKelvin(this.getAmount(), this.getUnit())} kelvin`);
   }
 }
 
+
+/**
+ * @class MagnitudeForce hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando FUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeForce extends MagnitudeConvert<FUnits>{
   constructor(protected valueForce: FUnits[], private amount: number, private unit: string) { 
     super(valueForce)
@@ -468,12 +560,19 @@ export class MagnitudeForce extends MagnitudeConvert<FUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToNewton(this.getAmount(), this.getUnit())} Newton`);
   }
 }
 
 
+/**
+ * @class MagnitudeVolume hija que extiende de la clase abstracta genérica que hace la conversión de tipos usando VUnits,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeVolume extends MagnitudeConvert<VUnits>{
   constructor(protected valueVolume: VUnits[], private amount: number, private unit: string) { 
     super(valueVolume)
@@ -501,11 +600,19 @@ export class MagnitudeVolume extends MagnitudeConvert<VUnits>{
     }
   }
   
+  /**
+   * ### Method print que imprime la conversión que la clase abstracta hace
+   */
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToM3(this.getAmount(), this.getUnit())} m^3`);
   }
 }
 
+
+/**
+ * @class MagnitudeCollection genérica que contiene ls interfaz genérica y almacena todo tipo de magnitudes,
+ * y así poner en práctica el método SOLID, Single Responsability and Open-closed
+ */
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
   }
@@ -549,21 +656,3 @@ export class MagnitudeCollection<T> implements isConvertible<T>{
     return this.items.length;
   }
 }
-
-/*
-const myConvertion = new MagnitudeCollection([
-  new MagnitudeTime([], 2,'minutes')
-]);
-
-
-for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
-  myConvertion.getMagnitudeTime(i).print();
-}
-*/
-
-
-
-/**
- * import {isConvertible} from '../src/ejercicio-2/isConvertible';
-import {Magnitude} from '../src/ejercicio-2/isConvertible';
- */
