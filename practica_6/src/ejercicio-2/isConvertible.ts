@@ -30,6 +30,7 @@ export interface isConvertible<T>{
 /**
  * name
  */
+ 
   convertirStoMinutes(amount: number, type: string): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;

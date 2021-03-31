@@ -44,6 +44,6 @@ describe('Magnitude Collection', () => {
   })
 
     it('MagnitudeSpeed.convertirToMS(2) returns speed in m/s', () => {
-     return expect(mySpeedConvertion.convertirStoMinutes(4,'miles')).to.be.equal(undefined);
+     return expect(mySpeedConvertion.convertirToMS(4,'miles')).to.be.equal(undefined);
     })
 });
