@@ -30,7 +30,7 @@ export interface isConvertible<T>{
 /**
  * name
  */
- 
+  convertirToMS(amount: number, type: string): void;
   convertirStoMinutes(amount: number, type: string): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
@@ -50,6 +50,24 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
   }
   
   public convertirStoMinutes(amount: number, type: string): void {
+    if( type == 'pie' || type == 'pies' || type == 'foot'){
+      let result = amount * SUnits.pie_s;
+      return console.log(`${amount} pies/s son ${result} m/s`);
+    } else if(type == 'kilometer' || type == 'kilometre' || type == 'k/h'){
+      let result = amount * SUnits.k_h;
+      return console.log(`${amount} kilometro/s por hora son ${result} m/s`);
+    } else if(type == 'mile' || type == 'miles'){
+      let result = amount * SUnits.mile_h;
+      return console.log(`${amount} milla/s por hora son ${result} m/s`);
+    } else if(type == 'knot' || type == 'knots'){
+      let result = amount * SUnits.knots;
+      return console.log(`${amount} nudo/s son ${result} m/s`)
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  } 
+
+  public convertirToMS(amount: number, type: string){
     if( type == 'minute' || type == 'minutes'){
       let result = amount * TUnits.minutes;
       return console.log(`${amount} minutos son ${result} segundos`);
@@ -70,9 +88,8 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
       return console.log(`${amount} año/s son ${result} segundos`)
     } else {
       return console.log(`Correct convertion`);
-    }
-    
-  } 
+    } 
+  }
 
   abstract print(): void;
 
@@ -144,6 +161,9 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToMS(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirStoMinutes(_numMinutes: number): void {
     throw new Error("Method not implemented.");
