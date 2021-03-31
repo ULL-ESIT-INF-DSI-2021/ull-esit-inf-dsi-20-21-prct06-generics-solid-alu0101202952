@@ -25,16 +25,13 @@ export interface isConvertible<T>{
 /**
  * name
  */
-  /*public convertirStoMinutes(numMinutes: TUnits) {
-    let result = numMinutes*minutes;
-	  return console.log(`${numMinutes} minutos son ${result} segundos`)
-  } */
+  convertirStoMinutes(numMinutes: number): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
 }
 
 
-export abstract class Magnitude<T> implements isConvertible<T> {
+export abstract class MagnitudeConvert<T> implements isConvertible<T> {
   constructor(private value: T[]) {
   }
 
@@ -45,12 +42,17 @@ export abstract class Magnitude<T> implements isConvertible<T> {
   getNumberOfMagnitude() {
     return this.value.length;
   }
+  /*
+  public convertirStoMinutes(numMinutes: number): void {
+    let result = numMinutes * TUnits.minutes;
+	  return console.log(`${numMinutes} minutos son ${result} segundos`)
+  } */
 
   abstract print(): void;
 
 }
 
-export class MagnitudeTime extends Magnitude<TUnits>{
+export class MagnitudeTime extends MagnitudeConvert<TUnits>{
   constructor(protected valueTime: TUnits[], private amount: number, private unit: string) { 
     super(valueTime)
   }
@@ -76,13 +78,17 @@ export class MagnitudeTime extends Magnitude<TUnits>{
       this.valueTime[1] = nUnit;
     }
   }
+  
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.getMagnitude()} seconds`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount())} seconds`);
   }
 }
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirStoMinutes(_numMinutes: number): void {
+    throw new Error("Method not implemented.");
   }
   addMagnitude(newItem: T): T {
     return newItem;
@@ -104,7 +110,7 @@ export class MagnitudeCollection<T> implements isConvertible<T>{
   }
 }
 
-/*
+
 const myConvertion = new MagnitudeCollection([
   new MagnitudeTime([], 2,'minutes')
 ]);
@@ -113,7 +119,7 @@ const myConvertion = new MagnitudeCollection([
 for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
   myConvertion.getMagnitudeTime(i).print();
 }
-*/
+
 
 
 
