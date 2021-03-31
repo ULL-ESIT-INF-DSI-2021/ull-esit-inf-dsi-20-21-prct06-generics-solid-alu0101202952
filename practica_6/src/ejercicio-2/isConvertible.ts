@@ -52,8 +52,19 @@ export enum TemUnits{
    *  Grado Fahrenheit, Fórmula (nºF -32) * 5/9 + 273.15 = xº K
    * EJEMPLO: 1 = 255.928K, 2 = 256.483
   */ 
-  fahrenheit = 255.928,
-   
+  fahrenheit = 255.928,  
+}
+
+export enum FUnits{
+  newton =1,
+  kn = 1000,
+  /**
+   * gf == gram-force
+   * kf == kilogramforce
+   * kn == kilonewton
+   */
+  gf = 0.00980665,
+  kf = 9.80665
 }
 
 
@@ -70,6 +81,7 @@ export interface isConvertible<T>{
   convertirToKilograms(amount: number, type: string): void; 
   convertirToMeters(amount: number, type: string): void;
   convertirStoMinutes(amount: number, type: string): void; 
+  convertirToKelvin(amount: number, type: string): void;
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
 }
@@ -177,6 +189,32 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } 
   }
 
+  public convertirToKelvin(amount: number, type: string){
+    if(type == 'celsius'){
+      if(amount == 1){
+        let result = TemUnits.c;
+        return console.log(`${amount} grado celsius es ${result} kelvin`);
+      } else{
+        let result = amount + TemUnits.basic;
+        return console.log(`${amount} grados celsius son ${result} kelvin`);
+      }
+      /**
+      *  Grado Fahrenheit, Fórmula (nºF -32) * 5/9 + 273.15 = xº K
+      * EJEMPLO: 1 = 255.928K, 2 = 256.483
+      */ 
+    } else if(type == 'fahrenheit'){
+      if(amount == 1){
+        let result = TemUnits.fahrenheit;
+        return console.log(`${amount} grado fahrenheit es ${result} kelvin`);
+      } else {
+        let result = (amount-32) * 5/9 + TemUnits.basic;
+        return console.log(`${amount} grados fahrenheit son ${result} kelvin`);
+      }
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  }
+
   abstract print(): void;
 
 }
@@ -209,7 +247,7 @@ export class MagnitudeSpeed extends MagnitudeConvert<SUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} m/s`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} m/s`);
   }
 }
 
@@ -241,7 +279,7 @@ export class MagnitudeMass extends MagnitudeConvert<MUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} kilograms`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToKilograms(this.getAmount(), this.getUnit())} kilograms`);
   }
 }
 
@@ -273,7 +311,7 @@ export class MagnitudeLength extends MagnitudeConvert<LUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} meters`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMeters(this.getAmount(), this.getUnit())} meters`);
   }
 }
 
@@ -337,12 +375,47 @@ export class MagnitudeTemperature extends MagnitudeConvert<TemUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} kelvin`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToKelvin(this.getAmount(), this.getUnit())} kelvin`);
+  }
+}
+
+export class MagnitudeForce extends MagnitudeConvert<FUnits>{
+  constructor(protected valueForce: FUnits[], private amount: number, private unit: string) { 
+    super(valueForce)
+  }
+  getMagnitude() {
+    return this.valueForce;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: FUnits) {
+    this.valueForce.push(newMagnitude);
+  }
+  addAmount(nAmount: FUnits){
+    for(var i = 0; i < this.valueForce.length; i++){
+      this.valueForce[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: FUnits){
+    for(var i = 0; i < this.valueForce.length; i++){
+      this.valueForce[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} Newton`);
   }
 }
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToKelvin(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirToMeters(_amount: number, _type: string): void {
     throw new Error("Method not implemented.");

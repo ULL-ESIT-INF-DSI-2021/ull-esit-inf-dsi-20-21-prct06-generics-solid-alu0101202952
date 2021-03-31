@@ -6,6 +6,7 @@ import {MagnitudeSpeed} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeMass} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeLength} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeTemperature} from '../src/ejercicio-2/isConvertible';
+import {MagnitudeForce} from '../src/ejercicio-2/isConvertible';
 //import {MagnitudeCollection} from '../src/ejercicio-2/isConvertible';
 
 
@@ -18,7 +19,8 @@ const myTimeConvertion2 = new MagnitudeTime([],3,'hours');
 const mySpeedConvertion = new MagnitudeSpeed([],4,'miles');
 const myMassConvertion = new MagnitudeMass([],5,'grams');
 const myLengthConvertion = new MagnitudeLength([],6,'yards');
-const myTemperatureConvertion = new MagnitudeTemperature([],7,'celsius');
+const myTemperatureConvertion = new MagnitudeTemperature([],7,'fahrenheit');
+const myForceConvertion = new MagnitudeForce([],8,'kilonewton');
 
 describe('Magnitude Collection', () => {
     it('MagnitudeTime.getAmount() returns magnitude of time', () => {
@@ -81,12 +83,23 @@ describe('Magnitude Collection', () => {
       return expect(myTemperatureConvertion.getAmount()).to.be.equal(7);
     })
     it('MagnitudeTemperature.getAmount() returns magnitude of temperature', () => {
-      return expect(myTemperatureConvertion.getUnit()).to.be.equal('celsius');
+      return expect(myTemperatureConvertion.getUnit()).to.be.equal('fahrenheit');
     })
     it('MagnitudeTemperature.print() returns magnitude of temperature', () => {
       return expect(myTemperatureConvertion.print()).to.be.equal(undefined);
     })
     it('MagnitudeTemperature.convertirToKelvin(7, celsius) returns temperature in kelvin', () => {
-      return expect(myTemperatureConvertion.convertirToKelvin(7,'celsius')).to.be.equal(undefined);
+      return expect(myTemperatureConvertion.convertirToKelvin(7,'fahrenheit')).to.be.equal(undefined);
+    })
+
+
+    it('MagnitudeForce.getAmount() returns magnitude of force', () => {
+      return expect(myForceConvertion.getAmount()).to.be.equal(8);
+    })
+    it('MagnitudeForce.getAmount() returns magnitude of force', () => {
+      return expect(myForceConvertion.getUnit()).to.be.equal('kilonewton');
+    })
+    it('MagnitudeForce.print() returns magnitude of force', () => {
+      return expect(myForceConvertion.print()).to.be.equal(undefined);
     })
 });
