@@ -70,4 +70,7 @@ describe('Magnitude Collection', () => {
     it('MagnitudeLength.print() returns magnitude of length', () => {
       return expect(myLengthConvertion.print()).to.be.equal(undefined);
     })
+    it('MagnitudeLength.convertirToMeters(6, yards) returns length in meters', () => {
+      return expect(myLengthConvertion.convertirToMeters(6,'yards')).to.be.equal(undefined);
+    })
 });
