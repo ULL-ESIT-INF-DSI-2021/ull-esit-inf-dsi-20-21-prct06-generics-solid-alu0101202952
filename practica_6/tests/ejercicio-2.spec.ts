@@ -2,6 +2,7 @@ import 'mocha';
 import {expect} from 'chai';
 
 import {MagnitudeTime} from '../src/ejercicio-2/isConvertible';
+import {MagnitudeSpeed} from '../src/ejercicio-2/isConvertible';
 //import {MagnitudeCollection} from '../src/ejercicio-2/isConvertible';
 
 

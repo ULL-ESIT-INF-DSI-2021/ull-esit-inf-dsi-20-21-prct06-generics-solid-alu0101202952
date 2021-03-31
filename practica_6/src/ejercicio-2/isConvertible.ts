@@ -75,6 +75,38 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
 
 }
 
+export class MagnitudeSpeed extends MagnitudeConvert<SUnits>{
+  constructor(protected valueSpeed: SUnits[], private amount: number, private unit: string) { 
+    super(valueSpeed)
+  }
+  getMagnitude() {
+    return this.valueSpeed;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: SUnits) {
+    this.valueSpeed.push(newMagnitude);
+  }
+  addAmount(nAmount: SUnits){
+    for(var i = 0; i < this.valueSpeed.length; i++){
+      this.valueSpeed[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: SUnits){
+    for(var i = 0; i < this.valueSpeed.length; i++){
+      this.valueSpeed[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} m/s`);
+  }
+}
+
 export class MagnitudeTime extends MagnitudeConvert<TUnits>{
   constructor(protected valueTime: TUnits[], private amount: number, private unit: string) { 
     super(valueTime)
@@ -133,7 +165,7 @@ export class MagnitudeCollection<T> implements isConvertible<T>{
   }
 }
 
-
+/*
 const myConvertion = new MagnitudeCollection([
   new MagnitudeTime([], 2,'minutes')
 ]);
@@ -142,7 +174,7 @@ const myConvertion = new MagnitudeCollection([
 for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
   myConvertion.getMagnitudeTime(i).print();
 }
-
+*/
 
 
 
