@@ -40,6 +40,7 @@ export interface isConvertible<T>{
  * name
  */
   convertirToMS(amount: number, type: string): void;
+  convertirToKilograms(amount: number, type: string): void; 
   convertirStoMinutes(amount: number, type: string): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
@@ -75,6 +76,24 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
       return console.log(`Correct convertion`);
     } 
   } 
+
+  public convertirToKilograms(amount: number, type: string){
+    if( type == 'gram' || type == 'grams'){
+      let result = amount * MUnits.g;
+      return console.log(`${amount} gramo/s son ${result} kilogramos`);
+    } else if(type == 'miligrams' || type == 'miligram'){
+      let result = amount * MUnits.milig;
+      return console.log(`${amount} miligramo/s son ${result} kilogramos`);
+    } else if(type == 'micrograms' || type == 'microgram'){
+      let result = amount * MUnits.microg;
+      return console.log(`${amount} microgramo/s son ${result} kilogramos`);
+    } else if(type == 'ton' || type == 'tons'){
+      let result = amount * MUnits.t;
+      return console.log(`${amount} Tonelada/s son ${result} kilogramos`)
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  }
 
   public convertirToMS(amount: number, type: string){
     if( type == 'minute' || type == 'minutes'){
@@ -202,6 +221,9 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToKilograms(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirToMS(_amount: number, _type: string): void {
     throw new Error("Method not implemented.");
