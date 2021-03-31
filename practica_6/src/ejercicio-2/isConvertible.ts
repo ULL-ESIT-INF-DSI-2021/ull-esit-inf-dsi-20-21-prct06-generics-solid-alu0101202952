@@ -16,6 +16,17 @@ export enum MUnits{
   t = 1000
 }
 
+export enum LUnits{
+  m = 1,
+  km = 1000,
+  cm = 0.01,
+  mm = 0.001,
+  mile = 1609.34,
+  yard = 0.9144,
+  foot = 0.3048,
+  inch = 0.0254,
+  mile_nautic = 1852
+}
 
 //La unidad fundamental para medir el tiempo es en segundos
 export enum TUnits {
@@ -184,6 +195,38 @@ export class MagnitudeMass extends MagnitudeConvert<MUnits>{
   
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} kilograms`);
+  }
+}
+
+export class MagnitudeLength extends MagnitudeConvert<LUnits>{
+  constructor(protected valueLength: LUnits[], private amount: number, private unit: string) { 
+    super(valueLength)
+  }
+  getMagnitude() {
+    return this.valueLength;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: LUnits) {
+    this.valueLength.push(newMagnitude);
+  }
+  addAmount(nAmount: LUnits){
+    for(var i = 0; i < this.valueLength.length; i++){
+      this.valueLength[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: LUnits){
+    for(var i = 0; i < this.valueLength.length; i++){
+      this.valueLength[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} meters`);
   }
 }
 
