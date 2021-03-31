@@ -1,3 +1,7 @@
+export enum SUnits{
+  
+}
+
 
 //La unidad fundamental para medir el tiempo es en segundos
 export enum TUnits {
@@ -10,6 +14,7 @@ export enum TUnits {
   year = 31536000,
   
 }
+
 
 /**
  *  ### Interfaz genérica que hace la conversión de tiempo
@@ -87,7 +92,7 @@ export class MagnitudeTime extends Magnitude<TUnits>{
   }
 }
 
-class MagnitudeCollection<T> implements isConvertible<T>{
+export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
   }
   addMagnitude(newItem: T): T {
@@ -97,15 +102,15 @@ class MagnitudeCollection<T> implements isConvertible<T>{
     throw new Error("Method not implemented.");
   }
 
-  addItem(newItem: MagnitudeTime) {
+  addMagnitudeTime(newItem: MagnitudeTime) {
     this.items.push(newItem);
   }
 
-  getItem(index: number) {
+  getMagnitudeTime(index: number) {
     return this.items[index];
   }
 
-  getNumberOfItems() {
+  getNumberOfMagnitudes() {
     return this.items.length;
   }
 }
@@ -115,5 +120,10 @@ const myConvertion = new MagnitudeCollection([
 ]);
 
 for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
-  myConvertion.getItem(i).print();
+  myConvertion.getMagnitudeTime(i).print();
 }
+
+/**
+ * import {isConvertible} from '../src/ejercicio-2/isConvertible';
+import {Magnitude} from '../src/ejercicio-2/isConvertible';
+ */
