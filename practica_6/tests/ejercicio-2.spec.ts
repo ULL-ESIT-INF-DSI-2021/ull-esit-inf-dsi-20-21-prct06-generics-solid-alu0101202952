@@ -80,10 +80,13 @@ describe('Magnitude Collection', () => {
     it('MagnitudeTemperature.getAmount() returns magnitude of temperature', () => {
       return expect(myTemperatureConvertion.getAmount()).to.be.equal(7);
     })
-    it('MagnitudeTemperature.getAmount() returns magnitude of lentgh', () => {
+    it('MagnitudeTemperature.getAmount() returns magnitude of temperature', () => {
       return expect(myTemperatureConvertion.getUnit()).to.be.equal('celsius');
     })
-    it('MagnitudeTemperature.print() returns magnitude of length', () => {
+    it('MagnitudeTemperature.print() returns magnitude of temperature', () => {
       return expect(myTemperatureConvertion.print()).to.be.equal(undefined);
+    })
+    it('MagnitudeTemperature.convertirToKelvin(7, celsius) returns temperature in kelvin', () => {
+      return expect(myTemperatureConvertion.convertirToKelvin(7,'celsius')).to.be.equal(undefined);
     })
 });
