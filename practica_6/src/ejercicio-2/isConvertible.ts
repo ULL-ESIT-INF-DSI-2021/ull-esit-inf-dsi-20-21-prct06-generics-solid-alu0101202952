@@ -67,6 +67,13 @@ export enum FUnits{
   kf = 9.80665
 }
 
+export enum VUnits{
+  m3 = 1,
+  l = 0.001,
+  cm3 = 0.0000001,
+  mm3 = 0.0000000001 
+}
+
 
 /**
  *  ### Interfaz genérica que hace la conversión de tiempo
@@ -426,6 +433,39 @@ export class MagnitudeForce extends MagnitudeConvert<FUnits>{
   
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToNewton(this.getAmount(), this.getUnit())} Newton`);
+  }
+}
+
+
+export class MagnitudeVolume extends MagnitudeConvert<VUnits>{
+  constructor(protected valueVolume: VUnits[], private amount: number, private unit: string) { 
+    super(valueVolume)
+  }
+  getMagnitude() {
+    return this.valueVolume;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: VUnits) {
+    this.valueVolume.push(newMagnitude);
+  }
+  addAmount(nAmount: VUnits){
+    for(var i = 0; i < this.valueVolume.length; i++){
+      this.valueVolume[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: VUnits){
+    for(var i = 0; i < this.valueVolume.length; i++){
+      this.valueVolume[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} m^3`);
   }
 }
 

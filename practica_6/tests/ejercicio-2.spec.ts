@@ -7,6 +7,7 @@ import {MagnitudeMass} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeLength} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeTemperature} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeForce} from '../src/ejercicio-2/isConvertible';
+import {MagnitudeVolume} from '../src/ejercicio-2/isConvertible';
 //import {MagnitudeCollection} from '../src/ejercicio-2/isConvertible';
 
 
@@ -21,6 +22,7 @@ const myMassConvertion = new MagnitudeMass([],5,'grams');
 const myLengthConvertion = new MagnitudeLength([],6,'yards');
 const myTemperatureConvertion = new MagnitudeTemperature([],7,'fahrenheit');
 const myForceConvertion = new MagnitudeForce([],8,'gram-force');
+const myVolumeConvertion = new MagnitudeVolume([],9,'cubic centimeter');
 
 describe('Magnitude Collection', () => {
     it('MagnitudeTime.getAmount() returns magnitude of time', () => {
@@ -97,12 +99,26 @@ describe('Magnitude Collection', () => {
       return expect(myForceConvertion.getAmount()).to.be.equal(8);
     })
     it('MagnitudeForce.getAmount() returns magnitude of force', () => {
-      return expect(myForceConvertion.getUnit()).to.be.equal('kilonewton');
+      return expect(myForceConvertion.getUnit()).to.be.equal('gram-force');
     })
     it('MagnitudeForce.print() returns magnitude of force', () => {
       return expect(myForceConvertion.print()).to.be.equal(undefined);
     })
     it('MagnitudeForce.convertirToNewton(8, kilonewton) returns force in newton', () => {
       return expect(myForceConvertion.convertirToNewton(8,'gram-force')).to.be.equal(undefined);
+    })
+
+
+    it('MagnitudeVolume.getAmount() returns magnitude of volume', () => {
+      return expect(myVolumeConvertion.getAmount()).to.be.equal(9);
+    })
+    it('MagnitudeVolume.getAmount() returns magnitude of volume', () => {
+      return expect(myVolumeConvertion.getUnit()).to.be.equal('cubic centimeter');
+    })
+    it('MagnitudeVolume.print() returns magnitude of volume', () => {
+      return expect(myVolumeConvertion.print()).to.be.equal(undefined);
+    })
+    it('MagnitudeVolume.convertirToM3(9, cubic centimeter) returns Volume in m^3', () => {
+      return expect(myVolumeConvertion.convertirToM3(9,'cubic centimeter')).to.be.equal(undefined);
     })
 });
