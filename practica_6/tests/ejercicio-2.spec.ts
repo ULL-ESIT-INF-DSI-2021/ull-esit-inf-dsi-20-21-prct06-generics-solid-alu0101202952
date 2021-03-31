@@ -10,6 +10,7 @@ import {MagnitudeTime} from '../src/ejercicio-2/isConvertible';
 //]);
 
 const myTimeConvertion = new MagnitudeTime([],2,'minutes');
+const myTimeConvertion2 = new MagnitudeTime([],3,'hours');
 
 describe('Magnitude Collection', () => {
     it('MagnitudeTime.getAmount() returns magnitude of time', () => {
@@ -25,7 +26,7 @@ describe('Magnitude Collection', () => {
     })
     
     it('MagnitudeTime.convertirStoMinutes(2) returns time in seconds', () => {
-        return expect(myTimeConvertion.convertirStoMinutes(2,'minutes')).to.be.equal(undefined);
+        return expect(myTimeConvertion2.convertirStoMinutes(3,'hours')).to.be.equal(undefined);
     })
 
 });
