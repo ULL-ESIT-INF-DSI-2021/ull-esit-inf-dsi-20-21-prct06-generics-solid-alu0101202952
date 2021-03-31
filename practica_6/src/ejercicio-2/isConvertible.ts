@@ -164,7 +164,7 @@ export class MagnitudeMass extends MagnitudeConvert<MUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} m/s`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} kilograms`);
   }
 }
 
