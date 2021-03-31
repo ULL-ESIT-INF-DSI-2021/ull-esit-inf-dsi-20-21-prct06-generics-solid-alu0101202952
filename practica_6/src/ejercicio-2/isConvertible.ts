@@ -1,4 +1,7 @@
-//La unidad fundamental para medir el tiempo es en m/s
+/**
+ * @enum SUnits, SpeedUnits
+ * La unidad fundamental para medir la velocidad es en m/s
+ */
 export enum SUnits{
   m_s = 1,
   pie_s = 0.3048,
@@ -7,7 +10,10 @@ export enum SUnits{
   knots = 0.514444
 }
 
-//La unidad fundamental en el sistema internacional de la masa es el kilogramo
+/**
+ * @enum MUnits, MassUnits
+ * La unidad fundamental en el sistema internacional de la masa es el kilogramo
+ */
 export enum MUnits{
   kg = 1,
   g = 0.001,
@@ -16,6 +22,10 @@ export enum MUnits{
   t = 1000
 }
 
+/**
+ * @enum LUnits, LengthUnits
+ * La unidad fundamental en el sistema internacional de la longitus es el metro
+ */
 export enum LUnits{
   m = 1,
   km = 1000,
@@ -28,7 +38,10 @@ export enum LUnits{
   mile_nautic = 1852
 }
 
-//La unidad fundamental para medir el tiempo es en segundos
+/**
+ * @enum TUnits,  TimesUnits
+ * La unidad fundamental para medir el tiempo es en segundos
+ */
 export enum TUnits {
   seconds = 1,
   minutes = 60,
@@ -40,33 +53,43 @@ export enum TUnits {
   
 }
 
+/**
+ * @enum TemUnits,  TemperatureUnits
+ * La unidad fundamental para medir la temperatura es en grados kelvin
+ */
 export enum TemUnits{
   kelvin = 1,
   basic = 273.15,
   /**
-   *  Grado Celsius, Fórmula = nºC + 273.15 = xº K
+   *  @param c Grado Celsius, Fórmula = nºC + 273.15 = xº K
    *  EJEMPLO: 1 = 274.15K, 2 = 275.15...
    */
   c = 274.15,  
   /**
-   *  Grado Fahrenheit, Fórmula (nºF -32) * 5/9 + 273.15 = xº K
+   * @param fahrenheit Grado Fahrenheit, Fórmula (nºF -32) * 5/9 + 273.15 = xº K
    * EJEMPLO: 1 = 255.928K, 2 = 256.483
   */ 
   fahrenheit = 255.928,  
 }
 
+/**
+ * @enum FUnits,  ForceUnits
+ * La unidad fundamental para medir la fuerza es en newton
+ * @param gf == gram-force
+ * @param kf == kilogramforce
+ * @param kn == kilonewton
+ */
 export enum FUnits{
   newton =1,
   kn = 1000,
-  /**
-   * gf == gram-force
-   * kf == kilogramforce
-   * kn == kilonewton
-   */
   gf = 0.00980665,
   kf = 9.80665
 }
 
+/**
+ * @enum VUnits,  VolumeUnits
+ * La unidad fundamental para medir el volumen es en m^3
+ */
 export enum VUnits{
   m3 = 1,
   l = 0.001,
@@ -77,13 +100,11 @@ export enum VUnits{
 
 /**
  *  ### Interfaz genérica que hace la conversión de tiempo
+ * @interface isConvertible De forma genérica permite convertir dos unidades de medidas de tipo T
+ * siendo T los posbibles enum antes nombrados
  */
-
 export interface isConvertible<T>{
-// hacer una funcion que en función de la medida que se le pase saque una conversión u otra
-/**
- * name
- */
+
   convertirToMS(amount: number, type: string): void;
   convertirToKilograms(amount: number, type: string): void; 
   convertirToMeters(amount: number, type: string): void;
