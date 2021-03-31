@@ -54,39 +54,28 @@ export class MagnitudeTime extends Magnitude<TUnits>{
   constructor(protected valueTime: TUnits[], private amount: number, private unit: string) { 
     super(valueTime)
   }
-
   getMagnitude() {
     return this.valueTime;
   }
-
   getAmount(){
     return this.amount;
   }
-
   getUnit(){
     return this.unit;
   }
-
   addMagnitude(newMagnitude: TUnits) {
     this.valueTime.push(newMagnitude);
   }
-  
   addAmount(nAmount: TUnits){
     for(var i = 0; i < this.valueTime.length; i++){
       this.valueTime[0] = nAmount;
     }
   }
-
   addUnit(nUnit: TUnits){
     for(var i = 0; i < this.valueTime.length; i++){
       this.valueTime[1] = nUnit;
     }
   }
-
-  getFig(index: number) {
-    return this.valueTime[index];
-  }
-
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.getMagnitude()} seconds`);
   }
@@ -99,7 +88,7 @@ export class MagnitudeCollection<T> implements isConvertible<T>{
     return newItem;
   }
   getNumberOfMagnitude(): number {
-    throw new Error("Method not implemented.");
+    return this.items.length;
   }
 
   addMagnitudeTime(newItem: MagnitudeTime) {
@@ -115,13 +104,18 @@ export class MagnitudeCollection<T> implements isConvertible<T>{
   }
 }
 
+/*
 const myConvertion = new MagnitudeCollection([
-  new MagnitudeTime([], 2,'minutos')
+  new MagnitudeTime([], 2,'minutes')
 ]);
+
 
 for(var i = 0; i<myConvertion.getNumberOfMagnitude(); i++){
   myConvertion.getMagnitudeTime(i).print();
 }
+*/
+
+
 
 /**
  * import {isConvertible} from '../src/ejercicio-2/isConvertible';
