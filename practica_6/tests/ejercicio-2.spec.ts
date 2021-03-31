@@ -20,7 +20,7 @@ const mySpeedConvertion = new MagnitudeSpeed([],4,'miles');
 const myMassConvertion = new MagnitudeMass([],5,'grams');
 const myLengthConvertion = new MagnitudeLength([],6,'yards');
 const myTemperatureConvertion = new MagnitudeTemperature([],7,'fahrenheit');
-const myForceConvertion = new MagnitudeForce([],8,'kilonewton');
+const myForceConvertion = new MagnitudeForce([],8,'gram-force');
 
 describe('Magnitude Collection', () => {
     it('MagnitudeTime.getAmount() returns magnitude of time', () => {
@@ -103,6 +103,6 @@ describe('Magnitude Collection', () => {
       return expect(myForceConvertion.print()).to.be.equal(undefined);
     })
     it('MagnitudeForce.convertirToNewton(8, kilonewton) returns force in newton', () => {
-      return expect(myForceConvertion.convertirToNewton(8,'kilonewton')).to.be.equal(undefined);
+      return expect(myForceConvertion.convertirToNewton(8,'gram-force')).to.be.equal(undefined);
     })
 });

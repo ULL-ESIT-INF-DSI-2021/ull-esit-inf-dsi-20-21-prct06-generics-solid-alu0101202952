@@ -82,6 +82,8 @@ export interface isConvertible<T>{
   convertirToMeters(amount: number, type: string): void;
   convertirStoMinutes(amount: number, type: string): void; 
   convertirToKelvin(amount: number, type: string): void;
+  convertirToNewton(amount: number, type: string): void;
+
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
 }
@@ -214,6 +216,22 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
       return console.log(`Correct convertion`);
     } 
   }
+
+  public convertirToNewton(amount: number, type: string){
+    if(type == 'kilonewton'){
+      let result = amount * FUnits.kn;
+      return console.log(`${amount} Kilonewton/s son ${result} newton`);
+    } else if(type == 'gram-force' || type == 'gramforce'){
+      let result = amount * FUnits.gf;
+      return console.log(`${amount} gramo-fuerza/s son ${result} newton`);
+    } else if(type == 'kilogramforce'){
+      let result = amount * FUnits.kf;
+      return console.log(`${amount} kilogramo-fuerza/s son ${result} newton`)
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  }
+
 
   abstract print(): void;
 
@@ -407,12 +425,15 @@ export class MagnitudeForce extends MagnitudeConvert<FUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} Newton`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToNewton(this.getAmount(), this.getUnit())} Newton`);
   }
 }
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToNewton(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirToKelvin(_amount: number, _type: string): void {
     throw new Error("Method not implemented.");
