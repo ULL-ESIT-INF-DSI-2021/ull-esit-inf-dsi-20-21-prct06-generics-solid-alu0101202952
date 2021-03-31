@@ -7,6 +7,15 @@ export enum SUnits{
   knots = 0.514444
 }
 
+//La unidad fundamental en el sistema internacional de la masa es el kilogramo
+export enum MUnits{
+  kg = 1,
+  g = 0.001,
+  milig = 0.0000001,
+  microg = 0.0000000001,
+  t = 1000
+}
+
 
 //La unidad fundamental para medir el tiempo es en segundos
 export enum TUnits {
@@ -119,6 +128,38 @@ export class MagnitudeSpeed extends MagnitudeConvert<SUnits>{
   addUnit(nUnit: SUnits){
     for(var i = 0; i < this.valueSpeed.length; i++){
       this.valueSpeed[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} m/s`);
+  }
+}
+
+export class MagnitudeMass extends MagnitudeConvert<MUnits>{
+  constructor(protected valueMass: MUnits[], private amount: number, private unit: string) { 
+    super(valueMass)
+  }
+  getMagnitude() {
+    return this.valueMass;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: MUnits) {
+    this.valueMass.push(newMagnitude);
+  }
+  addAmount(nAmount: MUnits){
+    for(var i = 0; i < this.valueMass.length; i++){
+      this.valueMass[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: MUnits){
+    for(var i = 0; i < this.valueMass.length; i++){
+      this.valueMass[1] = nUnit;
     }
   }
   
