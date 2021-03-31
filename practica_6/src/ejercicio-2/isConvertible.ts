@@ -90,6 +90,7 @@ export interface isConvertible<T>{
   convertirStoMinutes(amount: number, type: string): void; 
   convertirToKelvin(amount: number, type: string): void;
   convertirToNewton(amount: number, type: string): void;
+  convertirToM3(amount: number, type: string): void;
 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
@@ -234,6 +235,21 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
     } else if(type == 'kilogramforce'){
       let result = amount * FUnits.kf;
       return console.log(`${amount} kilogramo-fuerza/s son ${result} newton`)
+    } else {
+      return console.log(`Correct convertion`);
+    } 
+  }
+
+  public convertirToM3(amount: number, type: string){
+    if(type == 'liter'){
+      let result = amount * VUnits.l;
+      return console.log(`${amount} litro/s son ${result} m^3`);
+    } else if(type == 'cubic centimeter' || type == 'cm3'){
+      let result = amount * VUnits.cm3;
+      return console.log(`${amount} centímetro/s cúbico/s son ${result} m^3`);
+    } else if(type == 'cubic milimeter'){
+      let result = amount * VUnits.mm3;
+      return console.log(`${amount} milimetro/s cubico/s son ${result} m^3`)
     } else {
       return console.log(`Correct convertion`);
     } 
@@ -465,12 +481,15 @@ export class MagnitudeVolume extends MagnitudeConvert<VUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToMS(this.getAmount(), this.getUnit())} m^3`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirToM3(this.getAmount(), this.getUnit())} m^3`);
   }
 }
 
 export class MagnitudeCollection<T> implements isConvertible<T>{
   constructor(private items: MagnitudeTime[]) {
+  }
+  convertirToM3(_amount: number, _type: string): void {
+    throw new Error("Method not implemented.");
   }
   convertirToNewton(_amount: number, _type: string): void {
     throw new Error("Method not implemented.");
