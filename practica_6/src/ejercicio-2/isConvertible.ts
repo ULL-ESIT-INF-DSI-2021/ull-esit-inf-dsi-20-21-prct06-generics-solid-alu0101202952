@@ -25,7 +25,7 @@ export interface isConvertible<T>{
 /**
  * name
  */
-  convertirStoMinutes(numMinutes: number): void; 
+  convertirStoMinutes(amount: number, type: string): void; 
   addMagnitude(newItem: T): void;
   getNumberOfMagnitude(): number;
 }
@@ -42,11 +42,29 @@ export abstract class MagnitudeConvert<T> implements isConvertible<T> {
   getNumberOfMagnitude() {
     return this.value.length;
   }
-  /*
-  public convertirStoMinutes(numMinutes: number): void {
-    let result = numMinutes * TUnits.minutes;
-	  return console.log(`${numMinutes} minutos son ${result} segundos`)
-  } */
+  
+  public convertirStoMinutes(amount: number, type: string): void {
+    if( type == 'minute' || type == 'minutes'){
+      let result = amount * TUnits.minutes;
+      return console.log(`${amount} minutos son ${result} segundos`);
+    } else if(type == 'hour' || type == 'hours'){
+      let result = amount * TUnits.hours;
+      return console.log(`${amount} hora/s son ${result} segundos`);
+    } else if(type == 'day' || type == 'days'){
+      let result = amount * TUnits.day;
+      return console.log(`${amount} dia/s son ${result} segundos`);
+    } else if(type == 'week' || type == 'weeks'){
+      let result = amount * TUnits.week;
+      return console.log(`${amount} semana/s son ${result} segundos`)
+    } else if(type == 'month' || type == 'months'){
+      let result = amount * TUnits.month;
+      return console.log(`${amount} mes/es son ${result} segundos`)
+    } else {
+      let result = amount * TUnits.year;
+      return console.log(`${amount} año/s son ${result} segundos`)
+    }
+    
+  } 
 
   abstract print(): void;
 
@@ -80,7 +98,7 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
   }
   
   print() {
-    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount())} seconds`);
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} seconds`);
   }
 }
 

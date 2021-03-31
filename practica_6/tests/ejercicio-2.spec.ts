@@ -24,8 +24,8 @@ describe('Magnitude Collection', () => {
         return expect(myTimeConvertion.print()).to.be.equal(undefined);
     })
     
-    it('MagnitudeTime.print() returns magnitude of time', () => {
-        return expect(myTimeConvertion.convertirStoMinutes(2)).to.be.equal(undefined);
+    it('MagnitudeTime.convertirStoMinutes(2) returns time in seconds', () => {
+        return expect(myTimeConvertion.convertirStoMinutes(2,'minutes')).to.be.equal(undefined);
     })
 
 });
