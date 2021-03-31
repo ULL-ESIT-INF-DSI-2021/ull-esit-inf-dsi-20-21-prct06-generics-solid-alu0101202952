@@ -5,6 +5,7 @@ import {MagnitudeTime} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeSpeed} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeMass} from '../src/ejercicio-2/isConvertible';
 import {MagnitudeLength} from '../src/ejercicio-2/isConvertible';
+import {MagnitudeTemperature} from '../src/ejercicio-2/isConvertible';
 //import {MagnitudeCollection} from '../src/ejercicio-2/isConvertible';
 
 
@@ -17,6 +18,7 @@ const myTimeConvertion2 = new MagnitudeTime([],3,'hours');
 const mySpeedConvertion = new MagnitudeSpeed([],4,'miles');
 const myMassConvertion = new MagnitudeMass([],5,'grams');
 const myLengthConvertion = new MagnitudeLength([],6,'yards');
+const myTemperatureConvertion = new MagnitudeTemperature([],7,'celsius');
 
 describe('Magnitude Collection', () => {
     it('MagnitudeTime.getAmount() returns magnitude of time', () => {
@@ -72,5 +74,16 @@ describe('Magnitude Collection', () => {
     })
     it('MagnitudeLength.convertirToMeters(6, yards) returns length in meters', () => {
       return expect(myLengthConvertion.convertirToMeters(6,'yards')).to.be.equal(undefined);
+    })
+
+
+    it('MagnitudeTemperature.getAmount() returns magnitude of temperature', () => {
+      return expect(myTemperatureConvertion.getAmount()).to.be.equal(7);
+    })
+    it('MagnitudeTemperature.getAmount() returns magnitude of lentgh', () => {
+      return expect(myTemperatureConvertion.getUnit()).to.be.equal('celsius');
+    })
+    it('MagnitudeTemperature.print() returns magnitude of length', () => {
+      return expect(myTemperatureConvertion.print()).to.be.equal(undefined);
     })
 });

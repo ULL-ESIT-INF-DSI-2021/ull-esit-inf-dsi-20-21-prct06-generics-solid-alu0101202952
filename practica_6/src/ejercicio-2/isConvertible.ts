@@ -40,6 +40,22 @@ export enum TUnits {
   
 }
 
+export enum TemUnits{
+  kelvin = 1,
+  basic = 273.15,
+  /**
+   *  Grado Celsius, Fórmula = nºC + 273.15 = xº K
+   *  EJEMPLO: 1 = 274.15K, 2 = 275.15...
+   */
+  c = 274.15,  
+  /**
+   *  Grado Fahrenheit, Fórmula (nºF -32) * 5/9 + 273.15 = xº K
+   * EJEMPLO: 1 = 255.928K, 2 = 256.483
+  */ 
+  fahrenheit = 255.928,
+   
+}
+
 
 /**
  *  ### Interfaz genérica que hace la conversión de tiempo
@@ -290,6 +306,38 @@ export class MagnitudeTime extends MagnitudeConvert<TUnits>{
   
   print() {
     console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} seconds`);
+  }
+}
+
+export class MagnitudeTemperature extends MagnitudeConvert<TemUnits>{
+  constructor(protected valueTemp: TemUnits[], private amount: number, private unit: string) { 
+    super(valueTemp)
+  }
+  getMagnitude() {
+    return this.valueTemp;
+  }
+  getAmount(){
+    return this.amount;
+  }
+  getUnit(){
+    return this.unit;
+  }
+  addMagnitude(newMagnitude: TemUnits) {
+    this.valueTemp.push(newMagnitude);
+  }
+  addAmount(nAmount: TemUnits){
+    for(var i = 0; i < this.valueTemp.length; i++){
+      this.valueTemp[0] = nAmount;
+    }
+  }
+  addUnit(nUnit: TemUnits){
+    for(var i = 0; i < this.valueTemp.length; i++){
+      this.valueTemp[1] = nUnit;
+    }
+  }
+  
+  print() {
+    console.log(`${this.getAmount()} ${this.getUnit()}, is ${this.convertirStoMinutes(this.getAmount(), this.getUnit())} kelvin`);
   }
 }
 
