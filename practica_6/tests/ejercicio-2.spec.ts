@@ -102,4 +102,7 @@ describe('Magnitude Collection', () => {
     it('MagnitudeForce.print() returns magnitude of force', () => {
       return expect(myForceConvertion.print()).to.be.equal(undefined);
     })
+    it('MagnitudeForce.convertirToNewton(8, kilonewton) returns force in newton', () => {
+      return expect(myForceConvertion.convertirToNewton(8,'kilonewton')).to.be.equal(undefined);
+    })
 });
