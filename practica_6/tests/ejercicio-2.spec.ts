@@ -35,4 +35,7 @@ describe('Magnitude Collection', () => {
       return expect(mySpeedConvertion.getAmount()).to.be.equal(4);
     })
 
+    it('MagnitudeSpeed.getAmount() returns magnitude of speed', () => {
+      return expect(mySpeedConvertion.getUnit()).to.be.equal('miles');
+    })
 });
