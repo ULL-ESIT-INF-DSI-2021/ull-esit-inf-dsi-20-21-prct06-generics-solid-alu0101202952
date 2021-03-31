@@ -1,10 +1,10 @@
 //La unidad fundamental para medir el tiempo es en m/s
 export enum SUnits{
   m_s = 1,
-  pie_s = 3.28084,
-  k_h = 3.6,
-  mile_h = 2.23694,
-  knots = 1.94384
+  pie_s = 0.3048,
+  k_h = 0.277778,
+  mile_h = 0.44704,
+  knots = 0.514444
 }
 
 
