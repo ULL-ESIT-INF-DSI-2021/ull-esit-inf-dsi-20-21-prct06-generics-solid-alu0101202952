@@ -15,6 +15,13 @@
  }
 
 
+ /**
+  * @interface iterable comprueba si es iterable la clase
+  */
+ export interface iterable{
+   
+ }
+
 /**
  * @class ,
  * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
@@ -124,7 +131,7 @@ export class RandomNumber {
 /**
  * @class RandomNumberSetCollection that containe a set of random numbers
  */
-export class  RandomNumberSetCollection <T extends RandomNumber> {
+export class  RandomNumberSetCollection <T> implements iterable{
     private rNumberSet: Set<T>;
 
     constructor(items: T[]) {

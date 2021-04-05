@@ -37,8 +37,9 @@ describe('RandomNumber', () => {
     return expect(rNumber1.floatRandom2(2,5)).to.be.equal(undefined);
   })
 
-  it('RandomNumberSetCollection returns set', () => {
-    return expect(rNumber1.floatRandom2(2,5)).to.be.equal(undefined);
+  
+  it('RandomNumberSetCollection returns get', () => {
+    return expect(rNumber1.getNumberOfItems()).to.be.equal(0);
   })
     
 });
