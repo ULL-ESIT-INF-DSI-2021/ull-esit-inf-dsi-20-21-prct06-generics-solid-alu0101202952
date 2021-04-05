@@ -64,6 +64,13 @@ export class RandomNumber {
     RandomNumber.randomNumber.items = items;
   }
 
+  
+  public floatRandom1(minRange: number, maxRange: number){
+   /* minRange = 0;
+    maxRange = 1;
+    return Math.random() * (1 - 0) + 0;
+  }*/
+
   /**
    *  getItem(index: number) {
     if (index >= KnapsackInstance.knapsackInstance.getNumberOfItems()) {
