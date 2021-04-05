@@ -33,25 +33,49 @@ export class RandomNumber {
   private items: RandomNumberItem[];
   private inNumber: number;
 
-  private static RandomNumber: RandomNumber;
+  private static randomNumber: RandomNumber;
 
-  private constructor() {
+  constructor() {
     this.items = [];
     this.inNumber = 0;
   }
 
-  /*
-  constructor(private readonly items: RandomNumberItem[],
-    private readonly inNumber: number) {
-  }*/
+  
+  public static getRandomNumber(): RandomNumber {
+    if (!RandomNumber.randomNumber) {
+      RandomNumber.randomNumber = new RandomNumber();
+    }
+    return RandomNumber.randomNumber;
+  }
 
   getNumber(){
-    return this.inNumber;
+    return RandomNumber.randomNumber.inNumber;
+  }
+
+  setNumber(inNumber: number){
+    RandomNumber.randomNumber.inNumber = inNumber;
   }
 
   getItems(){
-    return this.items;
+    return RandomNumber.randomNumber.items;
   }
+
+  setItems(items: []){
+    RandomNumber.randomNumber.items = items;
+  }
+
+  /**
+   *  getItem(index: number) {
+    if (index >= KnapsackInstance.knapsackInstance.getNumberOfItems()) {
+      return undefined;
+    }
+    return KnapsackInstance.knapsackInstance.items[index];
+  }
+
+  addItem(item: KnapsackItem) {
+    KnapsackInstance.knapsackInstance.items.push(item);
+  }
+   */
 }
 
 /**
