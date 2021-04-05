@@ -55,21 +55,21 @@ export class RandomNumber {
     RandomNumber.randomNumber.items = items;
   }
 
-  /*
+  
   getItem(index: number) {
     if (index >= RandomNumber.randomNumber.getNumberOfItems()) {
       return undefined;
     }
     return RandomNumber.randomNumber.items[index];
   }
-
+/*
   addItem(item: RandomNumberItem) {
     RandomNumber.randomNumber.items.push(item);
   }
-
+*/
   getNumberOfItems() {
     return RandomNumber.randomNumber.items.length;
-  }*/
+  }
 
   /**
    * ### Method floatRandom1
