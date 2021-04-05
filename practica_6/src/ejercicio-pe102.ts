@@ -62,11 +62,11 @@ export class RandomNumber {
     }
     return RandomNumber.randomNumber.items[index];
   }
-/*
+
   addItem(item: RandomNumberItem) {
     RandomNumber.randomNumber.items.push(item);
   }
-*/
+
   getNumberOfItems() {
     return RandomNumber.randomNumber.items.length;
   }

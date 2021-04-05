@@ -2,7 +2,7 @@ import 'mocha';
 import {expect} from 'chai';
 
 import {RandomNumber} from '../src/ejercicio-pe102';
-import {RandomNumberItem} from '../src/ejercicio-pe102';
+
 
 //const numberRandonCreate = new RandomNumber([],2);
 const randomNumber = RandomNumber.getRandomNumber();
