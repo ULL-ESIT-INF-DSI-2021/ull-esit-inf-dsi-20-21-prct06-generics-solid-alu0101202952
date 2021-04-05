@@ -11,9 +11,6 @@ const rNumber1 = new RandomNumber();
 
 
 describe('RandomNumber', () => {
-  it('numberRandonCreate.setNumber() returns number construct getter', () => {
-    return expect(rNumber1.setNumber(0)).to.be.equal(undefined);
-  })
   it('numberRandonCreate.getNumber() returns number construct getter', () => {
     return expect(rNumber1.getNumber()).to.be.equal(0);
   })
@@ -21,9 +18,7 @@ describe('RandomNumber', () => {
   it('numberRandonCreate.getItems() returns item getter', () => {
     return expect(rNumber1.getItems()).to.be.equal([]);
   })
-  it('numberRandonCreate.setItems() returns item getter', () => {
-    return expect(rNumber1.setItems([])).to.be.equal(undefined);
-  })
+  
 
   it('numberRandonCreate.getRandomNumber() returns random number like singleton method', () => {
     return expect(randomNumber).to.be.equal({ items: [], inNumber: 0 });
@@ -39,7 +34,11 @@ describe('RandomNumber', () => {
   })
 
   it('numberRandonCreate.floatRandom2() returns random float number between n and m numbers', () => {
-    return expect(rNumber1.floatRandom2(0,5)).to.be.equal(undefined);
+    return expect(rNumber1.floatRandom2(2,5)).to.be.equal(undefined);
+  })
+
+  it('RandomNumberSetCollection returns set', () => {
+    return expect(rNumber1.floatRandom2(2,5)).to.be.equal(undefined);
   })
     
 });

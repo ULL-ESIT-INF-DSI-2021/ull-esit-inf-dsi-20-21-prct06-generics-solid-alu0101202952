@@ -20,7 +20,6 @@
  * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
  */
 export class RandomNumber {
-
   private items: RandomNumberItem[];
   private inNumber: number;
 
@@ -31,7 +30,10 @@ export class RandomNumber {
     this.inNumber = 0;
   }
 
-  
+  /**
+   * ### Method public static that returns like singleton method
+   * @returns 
+   */
   public static getRandomNumber(): RandomNumber {
     if (!RandomNumber.randomNumber) {
       RandomNumber.randomNumber = new RandomNumber();
@@ -39,23 +41,29 @@ export class RandomNumber {
     return RandomNumber.randomNumber;
   }
 
+  /**
+   * ### Getter Number random
+   * @returns the random number in an object class
+   */
   getNumber(){
     return RandomNumber.randomNumber.inNumber;
   }
 
-  setNumber(inNumber: number){
-    RandomNumber.randomNumber.inNumber = inNumber;
-  }
 
+  /**
+   * ### Getter items type 
+   * @returns 
+   */
   getItems(){
     return RandomNumber.randomNumber.items;
   }
 
-  setItems(items: []){
-    RandomNumber.randomNumber.items = items;
-  }
 
-  
+  /**
+   * ### Method getter item in the specific index
+   * @param index 
+   * @returns item in a specific index
+   */
   getItem(index: number) {
     if (index >= RandomNumber.randomNumber.getNumberOfItems()) {
       return undefined;
@@ -63,10 +71,18 @@ export class RandomNumber {
     return RandomNumber.randomNumber.items[index];
   }
 
+  /**
+   * ### Method addItem
+   * @param item 
+   */
   addItem(item: RandomNumberItem) {
     RandomNumber.randomNumber.items.push(item);
   }
 
+  /**
+   * ### Method getNumberfItems
+   * @returns lenght of randomitems
+   */
   getNumberOfItems() {
     return RandomNumber.randomNumber.items.length;
   }
@@ -84,34 +100,46 @@ export class RandomNumber {
     return result;
   }
 
+  /**
+   * ### Method floatRandom2
+   * @param minRange range = n, minimun number that require to user
+   * @param maxRange range = m, maximun number that require to user
+   * @returns float random number between n and m, n include, 1 exclude
+   */
+  public floatRandom2(minRange: number, maxRange: number){
+    minRange = 2;
+    maxRange = 5;
+    let result = Math.random() * (maxRange - minRange) + minRange;
+    return result;
+  }
+
   
   
    
 }
 
+
+
+
 /**
- * @class ,
- * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
+ * @class RandomNumberSetCollection that containe a set of random numbers
  */
-/*export class ClassSon extends Class1{
+export class  RandomNumberSetCollection <T extends RandomNumber> {
+    private rNumberSet: Set<T>;
 
-    print() {
-        console.log(`I am a ${this.getName()}, I have ${this.getSides()} sides, ` +
-          `and my area is ${this.getArea()}`);
-    }
-}*/
-
-
-/*
- export class  FigureCollection <T extends Class1> {
-    private figures: Set<T>;
-
-    constructor(figures: T[]) {
-      this.figures = new Set(figures);
+    constructor(items: T[]) {
+      this.rNumberSet = new Set(items);
     }
 
-
-    print() {
-        this.figures.forEach((figure) => figure.print());
+    addItem(newItem: T) {
+      this.rNumberSet.add(newItem);
     }
-}*/
+  
+    getNumberOfItems() {
+      return this.rNumberSet.size;
+    }
+  
+
+
+  
+}
