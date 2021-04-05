@@ -29,9 +29,21 @@ export enum{
  * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
  */
 export class RandomNumber {
+
+  private items: RandomNumberItem[];
+  private inNumber: number;
+
+  private static RandomNumber: RandomNumber;
+
+  private constructor() {
+    this.items = [];
+    this.inNumber = 0;
+  }
+
+  /*
   constructor(private readonly items: RandomNumberItem[],
     private readonly inNumber: number) {
-  }
+  }*/
 
   getNumber(){
     return this.inNumber;

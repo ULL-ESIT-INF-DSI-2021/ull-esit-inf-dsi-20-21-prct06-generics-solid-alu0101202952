@@ -4,6 +4,7 @@ import {expect} from 'chai';
 import {RandomNumber} from '../src/ejercicio-pe102';
 
 const numberRandonCreate = new RandomNumber([],2);
+const randomNumber = RandomNumber.getRandomNumber();
 
 describe('RandomNumber', () => {
     it('numberRandonCreate.getNumber() returns number construct getter', () => {
@@ -12,6 +13,10 @@ describe('RandomNumber', () => {
 
     it('numberRandonCreate.getItems() returns item getter', () => {
       return expect(numberRandonCreate.getItems()).to.be.equal([]);
+    })
+
+    it('numberRandonCreate.getRandomNumber() returns random number like singleton method', () => {
+      return expect(numberRandonCreate.getRandomNumber()).to.be.equal(undefined);
     })
     
 });
