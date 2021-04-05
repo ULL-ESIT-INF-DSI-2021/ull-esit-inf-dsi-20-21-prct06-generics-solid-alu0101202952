@@ -37,5 +37,9 @@ describe('RandomNumber', () => {
   it('numberRandonCreate.floatRandom1() returns random float number between 0 and 1', () => {
     return expect(rNumber1.floatRandom1(0,1)).to.be.equal(undefined);
   })
+
+  it('numberRandonCreate.floatRandom2() returns random float number between n and m numbers', () => {
+    return expect(rNumber1.floatRandom2(0,5)).to.be.equal(undefined);
+  })
     
 });
