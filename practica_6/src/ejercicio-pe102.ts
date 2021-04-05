@@ -64,12 +64,18 @@ export class RandomNumber {
     RandomNumber.randomNumber.items = items;
   }
 
-  
+  /**
+   * ### Method floatRandom1
+   * @param minRange range = 0
+   * @param maxRange range = 1
+   * @return float random number between 0 and 1, 0 incluído, 1 excluído
+   */
   public floatRandom1(minRange: number, maxRange: number){
-   /* minRange = 0;
+    minRange = 0;
     maxRange = 1;
-    return Math.random() * (1 - 0) + 0;
-  }*/
+    let result = Math.random() * (maxRange - minRange) + minRange
+    return result;
+  }
 
   /**
    *  getItem(index: number) {
