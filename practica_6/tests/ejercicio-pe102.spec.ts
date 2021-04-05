@@ -9,5 +9,9 @@ describe('RandomNumber', () => {
     it('numberRandonCreate.getNumber() returns number construct getter', () => {
       return expect(numberRandonCreate.getNumber()).to.be.equal(2);
     })
+
+    it('numberRandonCreate.getItems() returns item getter', () => {
+      return expect(numberRandonCreate.getItems()).to.be.equal([]);
+    })
     
 });

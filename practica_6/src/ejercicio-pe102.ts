@@ -18,23 +18,28 @@
  * @enum ,
  * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
  */
+/*
 export enum{
 
 }
-
+*/
 
 /**
  * @class ,
  * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
  */
 export class RandomNumber {
-  /*constructor(private readonly items: RandomNumberItem[],
+  constructor(private readonly items: RandomNumberItem[],
     private readonly inNumber: number) {
   }
 
-  get
+  getNumber(){
+    return this.inNumber;
+  }
 
-    abstract print():void;*/
+  getItems(){
+    return this.items;
+  }
 }
 
 /**
@@ -50,11 +55,8 @@ export class RandomNumber {
 }*/
 
 
-/**
- * @class ,
- * y así poner en práctica los principios SOLID, Single Responsability and Open-closed
- */
- /*export class  FigureCollection <T extends Class1> {
+/*
+ export class  FigureCollection <T extends Class1> {
     private figures: Set<T>;
 
     constructor(figures: T[]) {
@@ -66,11 +68,3 @@ export class RandomNumber {
         this.figures.forEach((figure) => figure.print());
     }
 }*/
-
-
-/*const myTwoDimensionalFigureCollection = new FigureCollection<Class1>([
-    new ClassSon('RedRectangle', 'red', 10, 5),
-    new Rectangle('GreenRectangle', 'green', 5, 30),
-  ]);
-  
-  myTwoDimensionalFigureCollection.print();*/
